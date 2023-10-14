@@ -1,6 +1,6 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StatusBar as sb} from 'react-native'
+import { FlatList, StatusBar as sb, ImageBackground} from 'react-native'
 import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import HotVideo from './component/HotVideo';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view'
@@ -9,6 +9,11 @@ import TrendingItem from './component/TrendingItem';
 
 
 const trendingItemArr = [
+  {
+    image: 'https://pbs.twimg.com/semantic_core_img/1713203844765691904/ThAoem6l?format=jpg&name=medium',
+    title: 'Event Live',
+    tag: '#RWC2023 Quarter Finals'
+  },
   {
     title: 'Music Trending',
     tag:'WANT SO BAC OUT NOW',
@@ -28,13 +33,20 @@ const trendingItemArr = [
 ]
 
 const FirstRoute = () => (
-  <View style={{ height: '100%', padding: 10}}>
+  <View style={{ height: '100%'}}>
     <View style={{flex: 1, height: 10}}>
       <FlatList
         data={trendingItemArr}
         renderItem={
           ({item, index}) => {
-            if (index === 3) {
+            if(index === 0) {
+              return (
+                <ImageBackground source={{uri: item.image}} resizeMode='cover' style={styles.cover}>
+                  <Text>{item.title}</Text>
+                </ImageBackground>
+              )
+            }
+            if (index === 4) {
               return  <HotVideo />
             }
             return <TrendingItem trendData={item}></TrendingItem>}
@@ -110,6 +122,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  cover: {
+    height: 200,
+    width: '100%'
+  },
   container: {
     width: '100%',
     height: '100%',
