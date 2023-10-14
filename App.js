@@ -29,7 +29,22 @@ const trendingItemArr = [
     tag:'WANT SO BAC OUT NOW',
     postCount: '19.4K'
   },
-  {}
+  {},
+  {
+    title: 'Music Trending',
+    tag:'WANT SO BAC OUT NOW',
+    postCount: '19.4K'
+  },
+  {
+    title: 'Music Trending',
+    tag:'WANT SO BAC OUT NOW',
+    postCount: '19.4K'
+  },
+  {
+    title: 'Music Trending',
+    tag:'WANT SO BAC OUT NOW',
+    postCount: '19.4K'
+  },
 ]
 
 const FirstRoute = () => (
@@ -42,7 +57,10 @@ const FirstRoute = () => (
             if(index === 0) {
               return (
                 <ImageBackground source={{uri: item.image}} resizeMode='cover' style={styles.cover}>
-                  <Text>{item.title}</Text>
+                  <View style={styles.textContainer}>
+                    <Text style={styles.coverText}>{item.title}</Text>
+                    <Text style={styles.coverText}>{item.tag}</Text>
+                  </View>
                 </ImageBackground>
               )
             }
@@ -130,6 +148,16 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  textContainer: {
+    position: 'absolute',
+    top: '70%',
+    left: '5%'
+  },
+  coverText: {
+    fontSize: 18,
+    color: 'white',
+    fontWeight: 900,
+  }
 });
 
 // /**

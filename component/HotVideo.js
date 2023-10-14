@@ -22,7 +22,8 @@ const videoImageList = [
 export default function HotVideo () {
     return (
         <View style={styles.hotVideoContainer}>
-            <Text>hot video for you</Text>
+            <Text style={styles.title}>Videos for you</Text>
+            <Text>Check out these popular and trending videos for you</Text>
             <ScrollView horizontal={true}>
                 {videoImageList.map(item => (
                     <View key={item.id} style={styles.imageContainer}>
@@ -52,10 +53,16 @@ export default function HotVideo () {
 const styles = StyleSheet.create({
     hotVideoContainer: {
         marginTop: 30,
-        height: 240,
+        height: 260,
+        paddingLeft: 10
     },
     imageContainer: {
-      margin: 10
+      marginRight: 10,
+      marginVertical: 10
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 900,
     },
     playButton: {
         height: 30,

@@ -6,7 +6,7 @@ const style = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 0
+        padding: 10
         // height: 30,
         // width: '100%'
     },
@@ -14,6 +14,14 @@ const style = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         height: 30
+    },
+    titleText: {
+        fontSize: 14,
+        color: 'gray'
+    },
+    tagText: {
+        fontSize: 15,
+        fontWeight: 500,
     }
 })
 
@@ -23,9 +31,9 @@ export default function TrendingItem (props)  {
     return (
         <View style={{...style.trendingItem, height: 80}}>
             <View style={style.content}>
-                <Text>{title}</Text>
-                <Text>{tag}</Text>
-                <Text>{postCount} posts</Text>
+                <Text style={style.titleText}>{title}</Text>
+                <Text style={style.tagText}>{tag}</Text>
+                <Text style={style.titleText}>{postCount} posts</Text>
             </View>
             <View>
                 <Text>...</Text>
