@@ -1,4 +1,5 @@
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native'
+import { useNavigation,  } from '@react-navigation/native';
 
 const style = StyleSheet.create({
     trendingItem: {
@@ -28,17 +29,25 @@ const style = StyleSheet.create({
 export default function TrendingItem (props)  {
     console.log(props)
     const {title, tag, postCount} = props.trendData;
+    const n = useNavigation()
+
+    const onClick = () => {
+        console.log('nnnnnn', n)    
+        n.push('Details')
+    }
     return (
-        <View style={{...style.trendingItem, height: 80}}>
-            <View style={style.content}>
-                <Text style={style.titleText}>{title}</Text>
-                <Text style={style.tagText}>{tag}</Text>
-                <Text style={style.titleText}>{postCount} posts</Text>
+        <TouchableWithoutFeedback onPress = {onClick }>
+            <View style={{...style.trendingItem, height: 80}}>
+                <View style={style.content}>
+                    <Text style={style.titleText}>{title}</Text>
+                    <Text style={style.tagText}>{tag}</Text>
+                    <Text style={style.titleText}>{postCount} posts</Text>
+                </View>
+                <View>
+                    <Text>...</Text>
+                </View>
             </View>
-            <View>
-                <Text>...</Text>
-            </View>
-        </View>
+        </TouchableWithoutFeedback>   
     )
 }
 
